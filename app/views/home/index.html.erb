@@ -1,0 +1,38 @@
+
+<center> <h1>Home#index</h1> 
+	<% if user_signed_in? %>
+	<h2> User is Loged</h2>
+	<%= link_to "Edit User", edit_user_registration_path(current_user) %><br>	
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
+	<strong>Holydays days:  <%= @days %> </strong><br>
+	<!--__________________________________________________________________-->
+	<h1> Vacations <%=@user.name %> </h1>
+
+
+	<% @user.vacations.each do |vacation| %>
+	<p>
+		<strong>Date start:</strong>
+		<%= vacation.start_date %>
+
+		<strong>Date finish:</strong>
+		<%= vacation.finish_date %>
+
+		<strong>Duration:</strong>
+		<%= ((vacation.finish_date - vacation.start_date)/(3600*24)).to_i + 1 %>
+	</p>
+
+	<% end %>
+	<!--_________________________________________________________________________-->
+
+	<% if @user.admin %>
+	<% @users.each do |user| %>
+	<td> <%= link_to user.name , user_vacations_path(user) %></td><br>
+	<% end %>
+	<% end %>
+	<% else %>
+	<a href="/users/sign_up" class="btn btn-lg btn-primary">Sign up now!</a>
+	<div class = "login">
+		<%= render 'devise/sessions/login' %>
+	</div>
+	<% end %>
+</center>

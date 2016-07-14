@@ -1,0 +1,32 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// *= require_self
+
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.login{
+	background-color: lightblue;
+    width: 300px;
+    padding-bottom: 20px;
+}

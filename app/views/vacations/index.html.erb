@@ -1,0 +1,18 @@
+<h1> Vacations <%=@user.name %> </h1>
+
+
+<% @vacation.each do |vacation| %>
+  <p>
+    <strong>Date start:</strong>
+    <%= vacation.start_date %>
+
+    <strong>Date finish:</strong>
+    <%= vacation.finish_date %>
+
+    <strong>Duration:</strong>
+    <%= ((vacation.finish_date - vacation.start_date)/(3600*24)).to_i + 1 %>
+  </p>
+  
+<% end %>
+
+<%= link_to 'Assign vacations', new_user_vacation_path(@user) %>

@@ -2,17 +2,21 @@
 
 
 <% @vacation.each do |vacation| %>
-  <p>
-    <strong>Date start:</strong>
-    <%= vacation.start_date %>
+<p>
+	<strong>Date start:</strong>
+	<%= vacation.start_date.strftime("%m/%d/%Y") %>
 
-    <strong>Date finish:</strong>
-    <%= vacation.finish_date %>
+	<strong>Date finish:</strong>
+	<%= vacation.finish_date.strftime("%m/%d/%Y") %>
 
-    <strong>Duration:</strong>
-    <%= ((vacation.finish_date - vacation.start_date)/(3600*24)).to_i + 1 %>
-  </p>
-  
+	<strong>Duration:</strong>
+	<%= ((vacation.finish_date - vacation.start_date)/(3600*24)).to_i + 1 %>
+
+	<strong>Discount:</strong>
+	<%= vacation.discount_days.to_i %> days
+
+</p>
+
 <% end %>
 
 <%= link_to 'Assign vacations', new_user_vacation_path(@user) %>

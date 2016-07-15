@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 #Use boostrap-sass for css style
 gem 'bootstrap-sass'
+#Use mechanize for Holidays
+gem 'mechanize'
+#Redis gem for cache memory 
+gem 'redis'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

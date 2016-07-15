@@ -1,14 +1,13 @@
 
 <center> <h1>Home#index</h1> 
 	<% if user_signed_in? %>
-	<h2> User is Loged</h2>
+	<h2> Hello <%= @user.name %></h2>
 	<%= link_to "Edit User", edit_user_registration_path(current_user) %><br>	
 	<%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
-	<%= link_to "Holidays" , "http://www.timeanddate.com/holidays/colombia/2016" %>
-	<strong>Holydays days:  <%= @days %> </strong><br>
 	<!--__________________________________________________________________-->
 	<h1> Vacations <%=@user.name %> </h1>
 
+	<strong>Holydays days: </strong>  <%= @days.to_i %> <br>
 
 	<% @user.vacations.each do |vacation| %>
 	<p>

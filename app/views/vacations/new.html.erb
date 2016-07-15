@@ -1,3 +1,4 @@
+<%= @vacation.errors.full_messages.first if @vacation.errors.any? %>
 <%= form_for [@user, @vacation] do |f| %>
 	<p>
 		<%= f.label :start_date %>

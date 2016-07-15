@@ -12,7 +12,7 @@ class Vacation < ApplicationRecord
 
 	def  validate_date_range
 		if  self.start_date > self.finish_date
-			errors.add( :base , 'U haven\' t  a time machine !!!')
+			errors.add( :base , 'U don\' t  a time machine !!!')
 		end
 	end
 

@@ -1,12 +1,2 @@
 <%= @vacation.errors.full_messages.first if @vacation.errors.any? %>
-<%= form_for [@user, @vacation] do |f| %>
-	<p>
-		<%= f.label :start_date %>
-		<%= f.date_field :start_date %>
-	</p>
-	<p>
-		<%= f.label :finish_date %>
-		<%= f.date_field :finish_date %>
-	</p>
-	<%= f.submit 'enviar' %>
-<% end %>
+ <%= render 'form' %>

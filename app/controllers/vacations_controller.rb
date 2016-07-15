@@ -4,10 +4,24 @@ class VacationsController < ApplicationController
 		@vacation = @user.vacations.order(:start_date)
 	end
 
-	def destroy
+	def destroyd
 		@vacations = Vacation.find(params[:id])
 		@vacations.destroy
 		redirect_to user_vacations_path
+	end
+
+	def edit
+		@vacation = Vacation.find(params[:id])
+	end
+
+	def update
+		@vacation = Vacation.find(params[:id])
+
+		if @vacation.update(vacation_params)
+			redirect_to user_vacations_path
+		else
+			render 'edit'
+		end
 	end
 
 	def create

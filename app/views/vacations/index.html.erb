@@ -17,6 +17,7 @@
 	<%= vacation.discount_days.to_i %> days
 
 	<%= link_to 'Delete' , user_vacation_path(@user , vacation) , method: :delete %>
+	<%= link_to 'Update' , edit_user_vacation_path(@user , vacation)  %>
 </p>
 
 <% end %>

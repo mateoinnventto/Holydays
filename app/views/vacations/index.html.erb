@@ -1,5 +1,6 @@
 <h1> Vacations <%=@user.name %> </h1>
 
+<strong>Holydays days: </strong>  <%= @user.get_vacations_days.to_i %><br> <br>
 
 <% @vacation.each do |vacation| %>
 <p>
@@ -15,6 +16,7 @@
 	<strong>Discount:</strong>
 	<%= vacation.discount_days.to_i %> days
 
+	<%= link_to 'Delete' , user_vacation_path(@user , vacation) , method: :delete %>
 </p>
 
 <% end %>

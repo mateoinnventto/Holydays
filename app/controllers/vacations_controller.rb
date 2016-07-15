@@ -4,12 +4,21 @@ class VacationsController < ApplicationController
 		@vacation = @user.vacations.order(:start_date)
 	end
 
+	def destroy
+		@vacations = Vacation.find(params[:id])
+		@vacations.destroy
+		redirect_to user_vacations_path
+	end
+
 	def create
 		@vacation = @user.vacations.create(vacation_params)
 		duration = ((@vacation.finish_date - @vacation.start_date)/(3600*24)).to_i 
-		#@vacation.discount_days = @vacation.search_holidays_calendar(@vacation.start_date.year)  - 1
-		@vacation.save
-		redirect_to user_vacations_path
+		if @vacation.save
+			return redirect_to user_vacations_path
+		else
+			return render :new
+		end
+
 	end
 
 	def new
